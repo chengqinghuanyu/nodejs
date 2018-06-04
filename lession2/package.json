@@ -1,0 +1,19 @@
+{
+  "name": "ypx-lession2",
+  "version": "1.0.1",
+  "description": "我的第一个nodejs程序包",
+  "main": "80",
+  "scripts": {
+    "test": "12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git"
+  },
+  "author": "ypx",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "utility": "^1.13.1"
+  }
+}

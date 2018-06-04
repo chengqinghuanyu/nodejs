@@ -1,0 +1,24 @@
+{
+  "name": "package",
+  "version": "1.0.1",
+  "description": "正则表达式",
+  "main": "app.js",
+  "scripts": {
+    "test": "正则很强大也很难掌握"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git-bick"
+  },
+  "keywords": [
+    "正则",
+    "匹配",
+    "js",
+    "nodejs"
+  ],
+  "author": "ypx",
+  "license": "ISC",
+  "dependencies": {
+    "benchmark": "^2.1.4"
+  }
+}

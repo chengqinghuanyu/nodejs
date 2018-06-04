@@ -1,0 +1,25 @@
+{
+  "name": "package",
+  "version": "1.0.1",
+  "description": "mocha 测试前端html",
+  "main": "index",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git"
+  },
+  "keywords": [
+    "测试",
+    "前端",
+    "html",
+    "mocha",
+    "nodejs"
+  ],
+  "author": "ypx",
+  "license": "ISC",
+  "scripts": {
+  "test": "mocha-phantomjs index.html --ssl-protocol=any --ignore-ssl-errors=true"
+},
+}

@@ -1,0 +1,17 @@
+{
+  "name": "packge",
+  "version": "1.0.1",
+  "description": "mocha",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "ypx",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
+}

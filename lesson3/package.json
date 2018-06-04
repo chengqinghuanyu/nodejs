@@ -1,0 +1,23 @@
+{
+  "name": "package",
+  "version": "1.0.1",
+  "description": "我的爬虫练习册",
+  "main": "40",
+  "scripts": {
+    "test": "爬虫"
+  },
+  "repository": {
+    "type": "git",
+    "url": "试试"
+  },
+  "keywords": [
+    "爬虫"
+  ],
+  "author": "尹鹏孝",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.3",
+    "superagent": "^3.8.3"
+  }
+}

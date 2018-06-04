@@ -1,0 +1,24 @@
+{
+  "name": "package",
+  "version": "1.0.1",
+  "description": "nodejs 操作mysql数据库",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ypx",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git"
+  },
+  "keywords": [
+    "nodejs操作数据库使用模型model来管理项目"
+  ],
+  "dependencies": {
+    "express": "^4.16.3",
+    "mysql2": "^1.5.3",
+    "node-uuid": "^1.4.8",
+    "sequelize": "^4.37.10"
+  }
+}

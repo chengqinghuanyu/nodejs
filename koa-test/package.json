@@ -1,0 +1,19 @@
+{
+  "name": "koa-test",
+  "version": "1.0.1",
+  "description": "koa 测试应用",
+  "main": "app.js",
+  "scripts": {
+    "start": "node --use_strict start.js",
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.5.1"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "supertest": "^3.1.0"
+  }
+}
