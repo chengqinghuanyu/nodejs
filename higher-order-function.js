@@ -3,6 +3,7 @@
 *2、函数的返回值是一个函数
 *
 *
+*/
 /*求两个数的二次求和*/
 function mg(a,b,fn){
 	return fn(a,b)+fn(b,a)
