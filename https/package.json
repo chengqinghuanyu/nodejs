@@ -1,0 +1,11 @@
+{
+  "name": "packages",
+  "version": "1.0.1",
+  "description": "https is my first learn",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ypx",
+  "license": "ISC"
+}
