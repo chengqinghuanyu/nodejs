@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>读取个人信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+    <h1>
+
+    </h1>
+    <p> 用户信息
+        <%=title %>
+    </p>
+    <div>
+
+        <% mg.forEach(function(item){ %>
+            <p>姓名：
+                <%=item.name %>
+            </p>
+            <p>住址：
+                <%=item.address %>
+            </p>
+            <p>电话：
+                <%=item.tel %>
+            </p>
+            <% }) %>
+
+
+    </div>
+
+</body>
+
+</html>
