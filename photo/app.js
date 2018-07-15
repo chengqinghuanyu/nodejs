@@ -8,7 +8,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var photos = require('./routes/photos');
 var uploads = require('./routes/uploads');
-var myinfo = require('./routes/myinfo')
+var myinfo = require('./routes/myinfo');
+var dele = require('./routes/dele');
+var updates = require('./routes/update');
 var app = express();
 
 // view engine setup
@@ -24,10 +26,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/', indexRouter);
 //app.use('/', photos.list)
 app.use('/users', usersRouter);
+/*新增入口*/
 app.use('/uploads', uploads.form);
-app.post('/uploadsimg', uploads.submit)
+/*提交接口*/
+app.post('/uploadsimg', uploads.submit);
+/*信息列表*/
 app.use('/myinfo', myinfo.myinfo);
-// catch 404 and forward to error handler
+/*删除接口*/
+app.post('/dele', dele.del);
+/*展示修改信息页面*/
+app.use('/upinfo', updates.upInfo);
+/*修改数据接口*/
+app.post('/update', updates.update)
+    // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     next(createError(404));
 });

@@ -18,22 +18,46 @@
         <%=title %>
     </p>
     <div>
-
         <% mg.forEach(function(item){ %>
             <p>姓名：
                 <%=item.name %>
-            </p>
-            <p>住址：
-                <%=item.address %>
-            </p>
-            <p>电话：
-                <%=item.tel %>
-            </p>
-            <% }) %>
+                    住址：
+                    <%=item.address %>
+                        电话：
+                        <%=item.tel %>
+
+                            <span id="<%=item.id %>" onclick="dele(this)">
+                删除
+            </span>
+
+                            <a href="/upinfo?id=<%=item.id %>">
+    修改
+</a>
+                            <% }) %>
 
 
     </div>
-
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function dele(obj) {
+            console.log(obj.id)
+            $.ajax({
+                url: 'http://127.0.0.1:3000/dele',
+                data: {
+                    id: obj.id
+                },
+                method: 'POST',
+                success: function(res) {
+                    console.log('删除成功')
+                    window.location.href = '/myinfo'
+                },
+                error: function(res) {
+                    console.log('删除失败')
+                        //window.location.href = '/myinfo'
+                }
+            })
+        }
+    </script>
 </body>
 
 </html>

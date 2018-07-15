@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>图片上传</title>
+    <title>
+        <%= title %>
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
@@ -12,14 +14,23 @@
 <body>
 
     <h1>
-        <%= title %>
+        用户信息
     </h1>
-    <p> 用户信息</p>
     <div>
-        <p>姓名：<input type="text" name="user-name" placeholder="Name"></p>
-        <p>住址：<input type="textarea" name="addr"></p>
-        <p>电话：<input type="tel" name="tel"></p>
-        <p><input type="submit" id="submit" value="提交信息"></p>
+        <input type="hidden" id="<%=my.id %>">
+        <p>姓名：
+
+            <input type="text" name="user-name" value="<%=my.name %>" placeholder="Name">
+        </p>
+        <p>住址：
+            <input type="textarea" name="addr" value="<%=my.address %>">
+        </p>
+        <p>电话：
+            <input type="tel" name="tel" value="<%=my.tel %>">
+        </p>
+        <p>
+            <input type="submit" id="submit" value="提交信息">
+        </p>
     </div>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script>
@@ -27,23 +38,25 @@
             var user = $("input[name='user-name']").val();
             var addr = $("input[name='addr']").val()
             var tel = $("input[name='tel']").val()
+            var id = $("input[type='hidden']").attr("id")
             var data = {
                 name: user,
                 address: addr,
-                tel: tel
+                tel: tel,
+                id: parseInt(id)
             }
-
+            console.log(data);
             $.ajax({
                 method: "POST",
                 data: data,
-                url: 'http://127.0.0.1:3000/uploadsimg',
+                url: 'http://127.0.0.1:3000/update',
                 dataType: "JSON",
                 success: function(res) {
                     console.log(res);
 
                     if (res) {
-                        window.location.href = '/myinfo'
-                        window.location.href = '/myinfo'
+                        //window.location.href = 'myinfo'
+                        window.location.href = window.location.origin + '/myinfo'
                     }
                 },
                 error: function(err) {
