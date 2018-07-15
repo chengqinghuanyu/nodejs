@@ -19,20 +19,27 @@
         <p>姓名：<input type="text" name="user-name" placeholder="Name"></p>
         <p>住址：<input type="textarea" name="addr"></p>
         <p>电话：<input type="tel" name="tel"></p>
+        <p>头像：
+            <input type="file" name="file" id="file" onchange="uploadByForm();">
+            <span id="result"></span>
+            <img id="img" src="">
+        </p>
         <p><input type="submit" id="submit" value="提交信息"></p>
     </div>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/uploadsimg.js" defer></script>
     <script>
         $("#submit").on("click", function() {
             var user = $("input[name='user-name']").val();
             var addr = $("input[name='addr']").val()
-            var tel = $("input[name='tel']").val()
+            var tel = $("input[name='tel']").val();
+            var himg = $("#img").attr("src").split('images/')[1] || "";
             var data = {
                 name: user,
                 address: addr,
-                tel: tel
+                tel: tel,
+                himg: himg
             }
-
             $.ajax({
                 method: "POST",
                 data: data,

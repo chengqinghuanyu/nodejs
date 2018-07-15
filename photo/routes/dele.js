@@ -7,7 +7,7 @@ var db = mysql.createConnection({
 });
 exports.del = function(req, res) {
 
-    var id = parseInt(datas.id)
+    var id = parseInt(req.body.id)
     res.header('Access-Control-Allow-Origin', '*')
     res.header("Access-Control-Allow-Methods", "POST");
     res.header("Content-Type", "application/json;charset=utf-8");
@@ -16,7 +16,6 @@ exports.del = function(req, res) {
         if (err) {
             throw err;
         } else {
-
             var datas = req.body;
             res.statusCode = 200;
             console.log(datas);

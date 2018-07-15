@@ -22,8 +22,8 @@ exports.submit = function(req, res, next) {
     var datas = req.body;
 
     db.query(
-        "INSERT INTO znonz_users (date,name,address, tel)  " +
-        "VALUES (?, ?, ?, ?)", [date, datas.name, datas.address, datas.tel],
+        "INSERT INTO znonz_users (date,name,address,tel,himg)  " +
+        "VALUES (?, ?, ?, ?, ?)", [date, datas.name, datas.address, datas.tel, datas.himg],
         function(err) {
             if (err) throw err;
         }

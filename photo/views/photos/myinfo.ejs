@@ -10,34 +10,70 @@
 </head>
 
 <body>
-
     <h1>
-
+        用户信息
     </h1>
-    <p> 用户信息
-        <%=title %>
+    <p>
+        <span>
+            <%=title %>
+        </span>
+        <span>
+        <a href="/uploads">新增</a>
+        </span>
     </p>
-    <div>
-        <% mg.forEach(function(item){ %>
-            <p>姓名：
-                <%=item.name %>
-                    住址：
-                    <%=item.address %>
-                        电话：
+    <table>
+        <thead>
+            <tr>
+
+                <td>姓名</td>
+                <td>住址</td>
+                <td>电话</td>
+                <td colspan="2">操作</td>
+
+            </tr>
+        </thead>
+        <tbody id="ec_table">
+            <% mg.forEach(function(item){ %>
+                <tr class="">
+                    <td>
+                        <%=item.name %>
+                    </td>
+
+                    <td>
+                        <%=item.address %>
+                    </td>
+                    <td>
                         <%=item.tel %>
+                    </td>
 
-                            <span id="<%=item.id %>" onclick="dele(this)">
-                删除
-            </span>
 
-                            <a href="/upinfo?id=<%=item.id %>">
-    修改
-</a>
-                            <% }) %>
+                    <td>
+                        <span id="<%=item.id %>" onclick="dele(this)">
+                            删除</span>
+                    </td>
+                    <td>
+                        <a href="/upinfo?id=<%=item.id %>">修改</a>
+                    </td>
+                </tr>
+                <% }) %>
 
+
+        </tbody>
+    </table>
+
+
+    <div style="width:800px;margin:0 auto" width="400" border="1" cellspacing="0" align="center">
+        <span id="spanFirst">第一页</span>
+        <span id="spanPre">上一页</span>
+        <span id="spanNext">下一页</span>
+        <span id="spanLast">最后一页</span> 第
+        <span id="spanPageNum"></span>页/共
+        <span id="spanTotalPage"></span>页
 
     </div>
+
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/pages.js"></script>
     <script>
         function dele(obj) {
             console.log(obj.id)

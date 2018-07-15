@@ -11,6 +11,8 @@ var uploads = require('./routes/uploads');
 var myinfo = require('./routes/myinfo');
 var dele = require('./routes/dele');
 var updates = require('./routes/update');
+var ERR = require('./routes/404');
+var himg = require('./routes/himg');
 var app = express();
 
 // view engine setup
@@ -23,7 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use('/', indexRouter);
+app.use('/', indexRouter);
 //app.use('/', photos.list)
 app.use('/users', usersRouter);
 /*新增入口*/
@@ -37,10 +39,16 @@ app.post('/dele', dele.del);
 /*展示修改信息页面*/
 app.use('/upinfo', updates.upInfo);
 /*修改数据接口*/
-app.post('/update', updates.update)
-    // catch 404 and forward to error handler
+app.post('/update', updates.update);
+/*图片上传*/
+app.post('/himg', himg.himg.str, himg.himg.cb);
+/* catch 404 and forward to error handler*/
 app.use(function(req, res, next) {
-    next(createError(404));
+    //next(createError(404));
+    var err = new Error('Not Found');
+    err.status = 404;　　
+    res.render('photos/404');
+    next()
 });
 
 // error handler

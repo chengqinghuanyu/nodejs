@@ -28,22 +28,32 @@
         <p>电话：
             <input type="tel" name="tel" value="<%=my.tel %>">
         </p>
+        <p>头像
+            <input type="file" name="file" id="file" onchange="uploadByForm();">
+            <span id="result">
+    
+</span>
+            <img id="img" src="/images/<%=my.himg%>">
+        </p>
         <p>
             <input type="submit" id="submit" value="提交信息">
         </p>
     </div>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/uploadsimg.js" defer></script>
     <script>
         $("#submit").on("click", function() {
             var user = $("input[name='user-name']").val();
             var addr = $("input[name='addr']").val()
             var tel = $("input[name='tel']").val()
             var id = $("input[type='hidden']").attr("id")
+            var himg = $("#img").attr("src").split('images/')[1] || "";
             var data = {
                 name: user,
                 address: addr,
                 tel: tel,
-                id: parseInt(id)
+                id: parseInt(id),
+                himg: himg
             }
             console.log(data);
             $.ajax({
