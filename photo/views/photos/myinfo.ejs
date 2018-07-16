@@ -11,7 +11,7 @@
 
 <body>
     <h1>
-        用户信息
+        用户信息列表
     </h1>
     <p>
         <span>
@@ -20,11 +20,11 @@
         <span>
         <a href="/uploads">新增</a>
         </span>
+        <span><a href="/">回首页</a></span>
     </p>
     <table>
         <thead>
             <tr>
-
                 <td>姓名</td>
                 <td>住址</td>
                 <td>电话</td>
@@ -45,8 +45,6 @@
                     <td>
                         <%=item.tel %>
                     </td>
-
-
                     <td>
                         <span id="<%=item.id %>" onclick="dele(this)">
                             删除</span>
@@ -56,12 +54,8 @@
                     </td>
                 </tr>
                 <% }) %>
-
-
         </tbody>
     </table>
-
-
     <div style="width:800px;margin:0 auto" width="400" border="1" cellspacing="0" align="center">
         <span id="spanFirst">第一页</span>
         <span id="spanPre">上一页</span>

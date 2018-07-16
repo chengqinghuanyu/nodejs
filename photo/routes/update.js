@@ -1,12 +1,4 @@
-var mysql = require('mysql');
-var db = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: '',
-    database: 'test'
-});
-console.log(123);
-
+var db = require('../connect/c_db');
 exports.upInfo = function(req, res) {
     var id = parseInt(req.query.id);
     var myrows;

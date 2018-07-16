@@ -1,6 +1,6 @@
 //var express = require('express');
 var mysql = require('mysql');
-mysql.createPool({
+var pool = mysql.createPool({
     host: '127.0.0.1',
     user: 'root',
     password: '',
@@ -21,11 +21,11 @@ exports.query = function(sql, P, C) {
     }
     // 如果用户传入了三个参数，那么就是SQL和参数数组、回调函数
     // 从池子里面拿一个可以使用的连接
-    mysql.getConnection(function(err, connection) {
+    pool.getConnection(function(err, connection) {
         // Use the connection
-        mysql.query(sql, params, function() {
+        connection.query(sql, params, function() {
             // 使用完毕之后，将该连接释放回连接池
-            mysql.release();
+            connection.release();
             callback.apply(null, arguments);
         });
     });

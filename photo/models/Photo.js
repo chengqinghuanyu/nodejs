@@ -1,14 +1,5 @@
  var express = require('express');
- var mysql = require('mysql');
- var db = mysql.createConnection({
-     host: '127.0.0.1',
-     user: 'root',
-     password: '',
-     database: 'test'
- });
-
- //var db = require('../connect/c_db')
-
+ var db = require('../connect/c_db');
  db.query(
      "CREATE TABLE IF NOT EXISTS znonz_users (" +
      "id INT(10) NOT NULL AUTO_INCREMENT," +
@@ -16,9 +7,9 @@
      "name VARCHAR(26) DEFAULT ''," +
      "address LONGTEXT," +
      "tel BIGINT(11)," +
+     "himg VARCHAR(200)," +
      "PRIMARY KEY(id))",
      function(err) {
-         console.log(err)
          if (err) {
              throw err;
          }

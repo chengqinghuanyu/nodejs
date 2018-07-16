@@ -1,12 +1,11 @@
 var createError = require('http-errors');
+var Photo = require('./models/Photo');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var photos = require('./routes/photos');
 var uploads = require('./routes/uploads');
 var myinfo = require('./routes/myinfo');
 var dele = require('./routes/dele');
@@ -26,7 +25,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-//app.use('/', photos.list)
 app.use('/users', usersRouter);
 /*新增入口*/
 app.use('/uploads', uploads.form);

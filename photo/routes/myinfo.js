@@ -1,16 +1,9 @@
-var Photo = require('../models/Photo');
-var mysql = require('mysql');
-var db = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: '',
-    database: 'test'
-});
+var db = require('../connect/c_db');
+var mysqls = require('../db/com_mysql');
 exports.myinfo = function(req, res, next) {
-
     var myrows = []
-    var querysea = "SELECT * FROM znonz_users " +
-        "ORDER BY date DESC";
+        //var querysea = "SELECT * FROM znonz_users " + "ORDER BY date DESC";
+    var querysea = mysqls.myinfo.sql
     db.query(querysea, [], function(err, rows) {
         if (err) { throw err; return };
         myrows = rows;
@@ -22,13 +15,4 @@ exports.myinfo = function(req, res, next) {
         })
     })
 
-
-
-
-
-    //var mynewData = JSON.stringify(req.body)
-
-
-
-    //next();
 }
