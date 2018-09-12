@@ -12,8 +12,15 @@ var dele = require('./routes/dele');
 var updates = require('./routes/update');
 var ERR = require('./routes/404');
 var himg = require('./routes/himg');
+var testDatas = require('./routes/get-datas');
+var postDatas = require('./routes/post-data');
 var app = express();
-
+app.all('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type");
+    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+    next();
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -40,6 +47,10 @@ app.use('/upinfo', updates.upInfo);
 app.post('/update', updates.update);
 /*图片上传*/
 app.post('/himg', himg.himg.str, himg.himg.cb);
+
+app.get('/api/getdatas', testDatas.testDatas.cbs);
+app.post('/api/submit/userinfo', postDatas.submit);
+
 /* catch 404 and forward to error handler*/
 app.use(function(req, res, next) {
     //next(createError(404));

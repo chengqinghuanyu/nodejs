@@ -8,7 +8,11 @@
         <%= title %>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <style>
+        #img {
+            max-width: 200px;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,9 +34,8 @@
         </p>
         <p>头像
             <input type="file" name="file" id="file" onchange="uploadByForm();">
-            <span id="result">
-    
-</span>
+            <span id="result"></span>
+            <br>
             <img id="img" src="/images/<%=my.himg%>">
         </p>
         <p>
@@ -59,7 +62,7 @@
             $.ajax({
                 method: "POST",
                 data: data,
-                url: 'http://127.0.0.1:3000/update',
+                url: '/update',
                 dataType: "JSON",
                 success: function(res) {
                     console.log(res);

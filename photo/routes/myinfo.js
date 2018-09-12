@@ -11,7 +11,11 @@ exports.myinfo = function(req, res, next) {
         myrows = JSON.parse(myrows)
         res.render('photos/myinfo', {
             title: '个人信息',
-            mg: myrows
+            mg: myrows,
+            list: {
+                href: '/info',
+                text: '查看信息'
+            }
         })
     })
 

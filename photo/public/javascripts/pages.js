@@ -37,9 +37,9 @@ function pre() {
     maxRow = currentRow - pageSize;
     if (currentRow > numberRowsInTable)
         currentRow = numberRowsInTable;
-    for (var i = maxRow; i <
-        currentRow; i++) {
-        theTable.rows[i].style.display = '';
+    for (var i = maxRow; i < currentRow; i++) {
+        theTable ? theTable.rows[i].style.display = '' : ''
+            //theTable.rows[i].style.display = '';
     }
     if (maxRow == 0) {
         preText();
